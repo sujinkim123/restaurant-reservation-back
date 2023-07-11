@@ -13,15 +13,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name="board")
-@Entity
-public class BoardEntity {
+@Entity(name = "board")
+@Table(name = "board")
+public class Board {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long board_id;
+	@Column(name = "board_id")
+	private Long boardId;
 
-	private Long category_id;
+	@Column(name = "category_id")
+	private Long categoryId;
 
 	private String title;
 
@@ -29,9 +31,10 @@ public class BoardEntity {
 
 	private String writer;
 
-	private LocalDateTime created_at;
+	@Column(name = "created_at")
+	private LocalDateTime createdAt;
 
-	private LocalDateTime updated_at;
-
+	@Column(name = "updated_at")
+	private LocalDateTime updatedAt;
 
 }
