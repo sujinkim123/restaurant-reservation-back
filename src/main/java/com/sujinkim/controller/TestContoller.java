@@ -14,6 +14,7 @@ import com.sujinkim.service.BoardService;
 
 @RestController
 @RequestMapping(value="/api")
+@CrossOrigin(origins = "http://localhost:3001")
 public class TestContoller {
 
 	@Autowired
@@ -27,13 +28,13 @@ public class TestContoller {
 	}
 
 	@GetMapping("/board/list")
-	@CrossOrigin
 	public List<BoardDto> boardList() {
+		System.out.println("호출");
+		System.out.println(boardService.getBoardList());
 		return boardService.getBoardList();
 	}
 
 	@GetMapping("/board/{id}")
-	@CrossOrigin
 	public BoardDto getBoard(@PathVariable Long id) {
 		return boardService.getBoard(id);
 	}
